@@ -1,6 +1,8 @@
 procedure Chapter_6 is
-   -- Access types
-   -- Dynamic allocation
+   -- Discriminated types
+   -- Tagged types
+   -- Privacy/encapsulation
+   -- Child packages
 begin
    null;
 end Chapter_6;

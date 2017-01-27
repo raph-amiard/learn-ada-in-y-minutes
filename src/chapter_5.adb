@@ -1,8 +1,8 @@
 procedure Chapter_5 is
-   -- Discriminated types
-   -- Tagged types
-   -- Privacy/encapsulation
-   -- Child packages
+   --  Standard library (10 000 feets)
+   --  Generics usage
+   --  Generics implementation
+   --  Containers
 begin
    null;
 end Chapter_5;

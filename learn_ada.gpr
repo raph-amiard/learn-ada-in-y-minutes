@@ -1,12 +1,14 @@
 project Learn_Ada is
    for Source_Dirs use ("src");
    for Object_Dir use "obj";
-   for Main use ("chapter_0.adb", "chapter_1.adb");
+   for Main use
+     ("chapter_0.adb", "chapter_1.adb", "chapter_2.adb");
 
    package Compiler is
       for Default_Switches ("ada") use
-        ("-gnatwe",  -- Treat warnings as errors
-         "-gnatQ",   -- Don't quit even if illegalities
-         "-gnaty");  -- Enable built-in style checks
+        ("-gnatwe",    -- Treat warnings as errors
+         "-gnatQ",     -- Don't quit even if illegalities
+         "-gnaty",     -- Enable built-in style checks
+         "-gnaty-s");  -- Disable the "check separate specs" check
    end Compiler;
 end Learn_Ada;
