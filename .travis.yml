@@ -1,0 +1,22 @@
+env:
+  global:
+    - TOOLS_DIR=$HOME/build_tools
+    - GNAT_TAR_PATH=$TOOLS_DIR/gnat-gpl-2016-x86_64-linux-bin.tar.gz
+
+os:
+  - linux
+
+cache:
+  directories:
+  - $HOME/build_tools
+
+install:
+  - ls $HOME/build_tools
+  - test -f  $GNAT_TAR_PATH || (mkdir -p $TOOLS_DIR && wget http://mirrors.cdn.adacore.com/art/5739cefdc7a447658e0b016b -O $GNAT_TAR_PATH)
+  - ls $HOME/build_tools
+  - tar -xf $GNAT_TAR_PATH
+  - export PATH=$PATH:$PWD/gnat-gpl-2016-x86_64-linux-bin/bin/
+
+script:
+  - $PWD/gnat-gpl-2016-x86_64-linux-bin/bin/gprbuild --version
+  - $PWD/gnat-gpl-2016-x86_64-linux-bin/bin/gprbuild -f -p -P learn_ada.gpr
