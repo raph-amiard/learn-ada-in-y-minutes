@@ -1,6 +1,8 @@
+--  Exclude from article
 -----------
 -- DRAFT --
 -----------
+--  End of exclusion
 
 --  There's only single-line commants in Ada, they start with two consecutive
 --  hyphens.
