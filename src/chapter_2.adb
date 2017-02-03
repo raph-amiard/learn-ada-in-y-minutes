@@ -55,7 +55,7 @@ begin
 
    --  Of course you can use the value of a function in a call to another
    --  function
-   A := Mult(Return_2, 15);
+   A := Mult (Return_2, 15);
 
    declare
 
