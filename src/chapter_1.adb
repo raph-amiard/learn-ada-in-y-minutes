@@ -1,16 +1,19 @@
+--  Exclude from article
 -----------
 -- DRAFT --
 -----------
 
+--  Basic Syntax
+--  Variable declarations
+--  Built-in types
+--  Expressions
+--  Control structures (if/loop)
+
 with Ada.Text_IO; use Ada.Text_IO;
 with Interfaces;  use Interfaces;
+--  End of exclusion
 
 procedure Chapter_1 is
-   --  Basic Syntax
-   --  Variable declarations
-   --  Built-in types
-   --  Expressions
-   --  Control structures (if/loop)
 
    ----------------
    --  Variables --
