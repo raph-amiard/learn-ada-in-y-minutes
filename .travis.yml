@@ -20,3 +20,4 @@ install:
 script:
   - $PWD/gnat-gpl-2016-x86_64-linux-bin/bin/gprbuild --version
   - $PWD/gnat-gpl-2016-x86_64-linux-bin/bin/gprbuild -f -p -P learn_ada.gpr
+  - article/generate_article.py -o ada.html.markdown
