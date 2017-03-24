@@ -9,6 +9,7 @@ project Learn_Ada is
         ("-gnatwe",    -- Treat warnings as errors
          "-gnatQ",     -- Don't quit even if illegalities
          "-gnaty",     -- Enable built-in style checks
-         "-gnaty-s");  -- Disable the "check separate specs" check
+         "-gnaty-s",   -- Disable the "check separate specs" check
+         "-gnata");    -- Enable assertions
    end Compiler;
 end Learn_Ada;
