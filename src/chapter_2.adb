@@ -99,7 +99,15 @@ procedure Chapter_2 is
    end Incorrect_Swap;
    --  Calling this will fail raising an assertion error at runtime.
 
-   --  TODO: Add an example with a Pre
+   --  Pre conditions specify the guarantees that the caller must fullfill
+   --  before calling the subprogram.
+
+   function Safe_Div (L, R : Integer) return Integer
+   with Pre => (R /= 0)
+   is
+   begin
+      return L / R;
+   end Safe_Div;
 
    A : Integer;
 
