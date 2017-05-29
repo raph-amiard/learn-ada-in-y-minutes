@@ -4,10 +4,13 @@ import sys
 import getopt
 import glob
 import os
+import re
 
 START_EXCLUSION_TAG = '--  Exclude from article'
 STOP_EXCLUSION_TAG = '--  End of exclusion'
 SCRIPT_DIR = os.path.dirname(os.path.realpath(__file__))
+
+match_filename = re.compile("chapter_(\w+?)(-\w+)?.(ad[sb])")
 
 def insert_header(out):
     f = open(os.path.join(SCRIPT_DIR, "header.markdown"), "r")
@@ -19,16 +22,19 @@ def source_files(dir):
     """Return the list of Ada source files sorted by chapter and spec before
     body"""
     def key(x):
-        # Take chapter number for file name
-        chapter = int(x[-5:-4])
+        m = match_filename.match(os.path.basename(x))
+        chapter, cp, ext = m.groups()
 
         # Take ad'b' or ad's' file extension
-        body = x[-1:]
+        body = ext == 'adb'
+
+        cp = cp or ''
 
         # Lower keys are first in the list so we want spec of chapter 0 to have
-        # the lowest key and body of chapter 6 to have the highest key
-        return int(chapter) * 10  + (1 if body == "b" else 0)
-
+        # the lowest key and body of chapter 6 to have the highest key. For the
+        # child packages, we just use the length, which will be enough for our
+        # purposes.
+        return int(chapter) * 100  + len(cp) + int(body)
 
     # Get list of Ada source files
     files = glob.glob(os.path.join(dir, "*.ad[bs]"))
